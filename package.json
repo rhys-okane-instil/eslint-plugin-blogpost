@@ -2,8 +2,8 @@
   "name": "eslint-blog-post",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "yarn workspace eslint-plugin run build",
-    "test": "yarn workspace eslint-plugin run test"
+    "build": "yarn workspace eslint-plugin-blogpost run build",
+    "test": "yarn workspace eslint-plugin-blogpost run test"
   },
   "workspaces": [
     "eslint-plugin",
