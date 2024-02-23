@@ -2,6 +2,7 @@
   "name": "eslint-plugin-blogpost",
   "packageManager": "yarn@4.0.2",
   "scripts": {
+    "build": "yarn jest && yarn tsc",
     "test": "yarn jest"
   },
   "dependencies": {

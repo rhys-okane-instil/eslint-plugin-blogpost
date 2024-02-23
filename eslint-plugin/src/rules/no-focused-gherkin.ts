@@ -1,5 +1,4 @@
-import {AST_NODE_TYPES, ESLintUtils, TSESTree} from "@typescript-eslint/utils";
-import {RuleFixer, RuleFix} from "@typescript-eslint/utils/ts-eslint";
+import {AST_NODE_TYPES, ESLintUtils} from "@typescript-eslint/utils";
 
 export const noFocusedGherkin = ESLintUtils.RuleCreator.withoutDocs({
   meta: {
@@ -30,21 +29,8 @@ export const noFocusedGherkin = ESLintUtils.RuleCreator.withoutDocs({
         context.report({
           messageId: "focused",
           node: callee,
-          fix: (fixer) => fixNoFocusedGherkin(fixer, callee)
         });
       }
     };
   },
 });
-
-export const fixNoFocusedGherkin = (fixer: RuleFixer, callee: TSESTree.MemberExpression): RuleFix => {
-  // First item in the range array is the position of the first character of "when" (w), so we minus one to include the dot
-  const startingCharacter = callee.property.range[0] - 1;
-  // Second item in the range array is the position of the final character of "when" (n)
-  const endingCharacter = callee.property.range[1];
-
-  return {
-    range: [startingCharacter, endingCharacter],
-    text: ""
-  }
-}

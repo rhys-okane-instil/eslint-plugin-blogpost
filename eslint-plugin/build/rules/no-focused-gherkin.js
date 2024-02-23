@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixNoFocusedGherkin = exports.noFocusedGherkin = void 0;
+exports.noFocusedGherkin = void 0;
 const utils_1 = require("@typescript-eslint/utils");
 exports.noFocusedGherkin = utils_1.ESLintUtils.RuleCreator.withoutDocs({
     meta: {
@@ -35,20 +35,8 @@ exports.noFocusedGherkin = utils_1.ESLintUtils.RuleCreator.withoutDocs({
                 context.report({
                     messageId: "focused",
                     node: callee,
-                    fix: (fixer) => (0, exports.fixNoFocusedGherkin)(fixer, callee)
                 });
             }
         };
     },
 });
-const fixNoFocusedGherkin = (fixer, callee) => {
-    // First item in the range array is the position of the first character of "when" (w), so we minus one to include the dot
-    const startingCharacter = callee.property.range[0] - 1;
-    // Second item in the range array is the position of the final character of "when" (n)
-    const endingCharacter = callee.property.range[1];
-    return {
-        range: [startingCharacter, endingCharacter],
-        text: ""
-    };
-};
-exports.fixNoFocusedGherkin = fixNoFocusedGherkin;
