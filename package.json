@@ -2,7 +2,7 @@
   "name": "eslint-blog-post",
   "packageManager": "yarn@4.0.2",
   "scripts": {
-    "build": "yarn tsc",
+    "build": "yarn workspace eslint-plugin run build",
     "test": "yarn workspace eslint-plugin run test"
   },
   "workspaces": [
