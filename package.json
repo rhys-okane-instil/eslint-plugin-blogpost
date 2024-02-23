@@ -6,7 +6,7 @@
     "test": "yarn workspace eslint-plugin-blogpost run test"
   },
   "workspaces": [
-    "eslint-plugin",
+    "custom-eslint-rules",
     "project-code"
   ]
 }
